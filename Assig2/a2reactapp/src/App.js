@@ -20,11 +20,11 @@ function App() {
                             <Link className="nav-link" to="/Privacy">
                                 Privacy
                             </Link>
-                            <Link className="nav-link" to="/Regions">
+                            <Link className="nav-link" to="/Region">
                                 Regions
                             </Link>
 
-                            <Link className="nav-link" to="/Countries">
+                            <Link className="nav-link" to="/Country">
                                 Countries
                             </Link>
 
