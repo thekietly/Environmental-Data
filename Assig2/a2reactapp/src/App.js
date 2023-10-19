@@ -19,10 +19,14 @@ function App() {
                             <Link className="nav-link active" to="/Home">
                                 Home
                             </Link>
-                            <Link className="nav-link" to="/Contact">
+                            <Link className="nav-link" to="/Privacy">
+                                Privacy
+                            </Link>
+                            <Link className="nav-link" to="/Regions">
                                 Regions
                             </Link>
-                            <Link className="nav-link" to="/Products">
+
+                            <Link className="nav-link" to="/Countries">
                                 Countries
                             </Link>
 

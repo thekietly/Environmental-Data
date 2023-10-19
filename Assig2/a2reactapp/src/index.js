@@ -8,26 +8,32 @@ import Region from './routes/Region';
 import Privacy from './routes/Privacy';
 import Country from './routes/Country';
 import City from './routes/City';
+import Home from './routes/Home';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<App />}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/Home" element={<Home />} />
+                    <Route path="/Privacy" element={<Privacy />} />
+                    <Route path="/Region" element={<Region />} />
+                    <Route path="/Country" element={<Country />} />
+                    { // pass id to route
 
-        <Routes>
-            <Route path="/" element={<App />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/Home" element={<Home />} />
-                <Route path="/Region" element={<Region />} />
-                <Route path="/Country" element={<Country />} />
-                
-                <Route path="/Country" element={<Country />} />
-                <Route path="" element={<Home />} />
+                    }
+                    <Route path="/City" element={<City />} />
+                    <Route path="" element={<Home />} />
 
-                <Route path="*" element={<Home />} />
-            </Route>
+                    <Route path="*" element={<Home />} />
+                </Route>
 
-        </Routes>
+            </Routes>
+        </BrowserRouter>
+        
   </React.StrictMode>
 );
 
