@@ -1,16 +1,18 @@
-const RegionCard = ({ }) => {
+import { Link } from 'react-router-dom';
+function Card({regionId, regionName, imageUrl, countryCount }) {
     return (
-        <div>
-            <h2 className="text-center">
-                Home
-            </h2>
-            <hr />
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
+        <div className="card col-4 mb-2" style={{ width: 18 + 'rem' }} >
+            <img className="card-img-top" src={imageUrl} alt={"Image of " + regionName} />
+            <div className="card-body">
+                <h5 className="card-title">{regionName}</h5>
+                <p className="card-text">Total countries: {countryCount}</p>
 
+                <Link to={"/Country/"+ regionId } className="btn btn-outline-primary">View Countries</Link>
+            </div>
+
+        </div>
 
     )
 
 }
-
-export default RegionCard
+export default Card
