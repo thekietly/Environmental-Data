@@ -22,6 +22,7 @@ root.render(
                     <Route path="/Privacy" element={<Privacy />} />
                     <Route path="/Region" element={<Region />} />
                     <Route path="/Country" element={<Country />} />
+                    <Route path="/Country/:regionId" element={<Country />} />
                     { // pass id to route
 
                     }
