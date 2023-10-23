@@ -9,7 +9,7 @@ const RegionCardList = ({ }) => {
             .catch(error => {
                 console.log(error);
             })
-    })
+    }, [])
 
     return (
         <div className="row">
@@ -21,9 +21,7 @@ const RegionCardList = ({ }) => {
                     imageUrl={obj.imageUrl}
                     countryCount={obj.countryCount}
 
-                />
-
-            ))}
+                />))}
         </div>
 
     )

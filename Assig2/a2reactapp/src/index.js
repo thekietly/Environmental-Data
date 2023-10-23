@@ -24,6 +24,7 @@ root.render(
                     <Route path="/Home" element={<Home />} />
                     <Route path="/Privacy" element={<Privacy />} />
                     <Route path="/Region" element={<Region />} />
+
                     { //region -> country
                     }
                     <Route path="/Country" element={<Country />} />
