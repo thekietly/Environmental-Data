@@ -9,7 +9,10 @@ import Privacy from './routes/Privacy';
 import Country from './routes/Country';
 import City from './routes/City';
 import Home from './routes/Home';
-
+import Elements from './routes/Elements';
+import CountryEmissionsData from './routes/CountryEmissionsData';
+import SummaryCountryEmissionsData from './routes/SummaryCountryEmissionsData';
+import CountryTemperatureDetail from './routes/CountryTemperatureDetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,12 +24,24 @@ root.render(
                     <Route path="/Home" element={<Home />} />
                     <Route path="/Privacy" element={<Privacy />} />
                     <Route path="/Region" element={<Region />} />
+                    { //region -> country
+                    }
                     <Route path="/Country" element={<Country />} />
                     <Route path="/Country/:regionId" element={<Country />} />
-                    { // pass id to route
+                    <Route path="/Country/CountryTemperatureDetail:countryId" element={<CountryTemperatureDetail />} />
+                    <Route path="/Country/SummaryCountryEmissionsData:countryId" element={<SummaryCountryEmissionsData />} />
+
+                    <Route path="/Country/CountryEmissionsData:countryId" element={<CountryEmissionsData />} />
+                    <Route path="/Country/Elements" element={<Elements />} />
+
+                    { // country -> city
 
                     }
-                    <Route path="/City" element={<City />} />
+                    <Route path="/City/:countryId" element={<City />} />
+
+                    <Route path="/City/AirQualityData/:cityid" element={<Country />} />
+
+
                     <Route path="" element={<Home />} />
 
                     <Route path="*" element={<Home />} />
