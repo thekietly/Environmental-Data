@@ -1,16 +1,27 @@
-const CountryCard = ({ }) => {
+import { Link } from 'react-router-dom';
+function Card({ countryId, countryName, iso3, imageUrl, cityCount, emissionDataYearStart, emissionDataYearEnd, temperatureDataYearStart, temperatureDataYearEnd }) {
     return (
-        <div>
-            <h2 className="text-center">
-                Home
-            </h2>
-            <hr />
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
+        <div className="card col-4 mb-2" style={{ width: 18 + 'rem' }} >
+            <img className="card-img-top" src={imageUrl} alt={"Image of " + countryName} />
+            <div className="card-body">
+                <h5 className="card-title">{ iso3 + ":" + countryName}</h5>
+                <p className="card-text">Total cities: {cityCount}</p>
 
+                {
+                    // emissions and temp links
+                    
+                //<p className="card-text">{"View Emissions Year Range: " + emissionDataYearStart + "-" + emissionDataYearEnd} </p>
+                //<p className="card-text">{"View Temperature Year Range: " + temperatureDataYearStart + "-" + temperatureDataYearEnd} </p>
+
+                }
+
+
+                <Link to={"/City/" + countryId} className="btn btn-outline-primary">View Cities</Link>
+            </div>
+
+        </div>
 
     )
 
 }
-
-export default CountryCard
+export default Card

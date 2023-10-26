@@ -8,7 +8,7 @@ const RegionCardList = ({ }) => {
             .then(data => setState(data))
             .catch(error => {
                 console.log(error);
-            })
+            });
     }, [])
 
     return (
