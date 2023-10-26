@@ -9,6 +9,7 @@ function CountryCardList() {
         theRegion: {},
         countryList: [],
     });
+    // fix no regionId being passed over
     useEffect(() => {
         fetch(`http://localhost:5256/api/B_Countries/CountryList/${regionId}`)
             .then(response => response.json())
@@ -29,16 +30,21 @@ function CountryCardList() {
                 <div className="card-body">
                     <h5 className="card-title">{countryData.theRegion.regionName}</h5>
                     <p className="card-text">Total countries: {countryData.theRegion.countryCount}</p>
+                    <Link to="/Region" className="btn btn-outline-primary">Back To Regions</Link>
                 </div>
             </div>
             {countryData.countryList.map((obj) => (
-                <RegionCard
+                <CountryCard
+                //countryId, countryName, iso3, imageUrl, cityCount, emissionDataYear,  temperatureDataYear
                     key={obj.countryId}
-                    countryId={obj.regionId}
-                    countryName={obj.regionName}
+                    countryId={obj.countryId}
+                    countryName={obj.countryName}
                     iso3={obj.iso3}
                     imageUrl={obj.imageUrl}
                     cityCount={obj.cityCount}
+                    emissionDataYear={obj.emissionDataYearRange}
+                    temperatureDataYear={obj.temperatureDataYearRange}
+                    
                 />
             ))}
         </div>
