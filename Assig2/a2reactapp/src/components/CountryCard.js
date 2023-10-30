@@ -8,16 +8,17 @@ function Card({ countryId, countryName, iso3, imageUrl, cityCount, emissionDataY
                 <p className="card-text">Total cities: {cityCount}</p>
 
 
-                {
-                    emissionDataYear[0] === 0 ?<p>empty</p> : <p>non-empty</p>
-                }
+                
+                <p className="card-text">{"Emissions Year Range: " + emissionDataYear[0] + "-" + emissionDataYear[1]} </p>
 
+                <p className="card-text">{"Temperature Year Range: " + temperatureDataYear[0] + "-" + temperatureDataYear[1]} </p>
+                
                 {
-                    temperatureDataYear[0] === 0 ?<p>empty</p> : <p>non-empty</p>
+                    emissionDataYear[0] === 0 ? "" : <Link to={"/Country/SummaryCountryEmissionsData/" + countryId} className="btn btn-outline-primary">View Emissions</Link>
                 }
-                <p className="card-text">{"View Emissions: " + emissionDataYear[0] + "-" + emissionDataYear[1]} </p>
-                <p className="card-text">{"View Temperature: " + temperatureDataYear[0] + "-" + temperatureDataYear[1]} </p>
-
+                {
+                    temperatureDataYear[0] === 0 ? "" : <Link to={"/Country/CountryTemperatureDetail/" + countryId} className="btn btn-outline-primary">View Temperature</Link>
+                }
                 
 
 
