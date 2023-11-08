@@ -16,8 +16,6 @@ function Card({countryObj, regionObj, countryId, countryName, iso3, imageUrl, ci
                 }
                 {
                     temperatureDataYear[0] === 0 ? "" : <Link to={"/Country/CountryTemperatureDetail/" + countryId} state={{ regionData: regionObj, countryData: countryObj }}  className="btn btn-outline-primary">View Temperature</Link>
-
-
                 }
                 {console.log(regionObj)}
                 <Link to={"/City/" + countryId} className="btn btn-outline-primary">View Cities</Link>
