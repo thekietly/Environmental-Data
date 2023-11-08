@@ -61,6 +61,8 @@ function CountryCardList() {
                     <CountryCard
                         //countryId, countryName, iso3, imageUrl, cityCount, emissionDataYear,  temperatureDataYear
                         key={obj.countryId}
+                        countryObj={ obj}
+                        regionObj={countryData.theRegion}
                         countryId={obj.countryId}
                         countryName={obj.countryName}
                         iso3={obj.iso3}
