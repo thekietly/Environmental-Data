@@ -38,24 +38,23 @@ function CountryCardList() {
                 <div className="row justify-content-start mb-3">
                     <div className="col-3">
                         <input type="text" name="searchTextOnSubmit" className="form-control" placeholder="Handle submit ...Type your query.. " />
-
                     </div>
-
-
                     <div className="col text-left">
                         <button className="btn btn-primary" type="submit">Search</button>
                     </div>
                 </div>
-
             </form>
-            <div className="card col-4 mb-2" style={{ width: 18 + 'rem' }}>
-                <img className="card-img-top" src={countryData.theRegion.imageUrl} alt={"Image of " + countryData.theRegion.regionName} />
-                <div className="card-body">
-                    <h5 className="card-title">{countryData.theRegion.regionName}</h5>
-                    <p className="card-text">Total countries: {countryData.theRegion.countryCount}</p>
-                    <Link to="/Region" className="btn btn-outline-primary">Back To Regions</Link>
+            {
+                countryData.theRegion.regionId === 0 ? "" : <div className="card col-4 mb-2" style={{ width: 18 + 'rem' }}>
+                    <img className="card-img-top" src={countryData.theRegion.imageUrl} alt={"Image of " + countryData.theRegion.regionName} />
+                    <div className="card-body">
+                        <h5 className="card-title">{countryData.theRegion.regionName}</h5>
+                        <p className="card-text">Total countries: {countryData.theRegion.countryCount}</p>
+                        <Link to="/Region" className="btn btn-outline-primary">Back To Regions</Link>
+                    </div>
                 </div>
-            </div>
+            }
+            
             <div className="row">
                 {countryData.countryList.map((obj) => (
                     <CountryCard
