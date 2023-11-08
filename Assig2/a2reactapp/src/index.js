@@ -24,20 +24,15 @@ root.render(
                     <Route path="/Home" element={<Home />} />
                     <Route path="/Privacy" element={<Privacy />} />
                     <Route path="/Region" element={<Region />} />
-
-                    { //region -> country
-                    }
+                    
                     <Route path="/Country" element={<Country />} />
                     <Route path="/Country/:regionId" element={<Country />} />
-                    <Route path="/Country/CountryTemperatureDetail:countryId" element={<CountryTemperatureDetail />} />
-                    <Route path="/Country/SummaryCountryEmissionsData:countryId" element={<SummaryCountryEmissionsData />} />
+                    <Route path="/Country/CountryTemperatureDetail/:countryId" element={<CountryTemperatureDetail />} />
+                    <Route path="/Country/SummaryCountryEmissionsData/:countryId" element={<SummaryCountryEmissionsData />} />
 
-                    <Route path="/Country/CountryEmissionsData:countryId" element={<CountryEmissionsData />} />
+                    <Route path="/Country/CountryEmissionsData/:countryId" element={<CountryEmissionsData />} />
                     <Route path="/Country/Elements" element={<Elements />} />
 
-                    { // country -> city
-
-                    }
                     <Route path="/City/:countryId" element={<City />} />
 
                     <Route path="/City/AirQualityData/:cityid" element={<Country />} />
