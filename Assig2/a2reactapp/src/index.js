@@ -13,7 +13,6 @@ import Elements from './routes/Elements';
 import CountryEmissionsData from './routes/CountryEmissionsData';
 import SummaryCountryEmissionsData from './routes/SummaryCountryEmissionsData';
 import CountryTemperatureDetail from './routes/CountryTemperatureDetail';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
@@ -35,7 +34,7 @@ root.render(
 
                     <Route path="/City/:countryId" element={<City />} />
 
-                    <Route path="/City/AirQualityData/:cityid" element={<Country />} />
+                    <Route path="/City/AirQualityData/:cityId" element={<Country />} />
 
 
                     <Route path="" element={<Home />} />
