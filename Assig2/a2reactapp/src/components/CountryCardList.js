@@ -37,7 +37,7 @@ function CountryCardList() {
             <form method="post" onSubmit={handleSubmit}>
                 <div className="row justify-content-start mb-3">
                     <div className="col-3">
-                        <input type="text" name="searchTextOnSubmit" className="form-control" placeholder="Handle submit ...Type your query.. " />
+                        <input type="text" name="searchTextOnSubmit" className="form-control" placeholder="Type a country... " />
                     </div>
                     <div className="col text-left">
                         <button className="btn btn-primary" type="submit">Search</button>
@@ -45,7 +45,8 @@ function CountryCardList() {
                 </div>
             </form>
             {
-                countryData.theRegion.regionId === 0 ? "" : <div className="card col-4 mb-2" style={{ width: 18 + 'rem' }}>
+                countryData.theRegion.regionId === 0 ?
+                    <Link to="/Region" className="btn btn-outline-primary">Back To Regions</Link> : <div className="card col-4 mb-2" style={{ width: 18 + 'rem' }}>
                     <img className="card-img-top" src={countryData.theRegion.imageUrl} alt={"Image of " + countryData.theRegion.regionName} />
                     <div className="card-body">
                         <h5 className="card-title">{countryData.theRegion.regionName}</h5>
