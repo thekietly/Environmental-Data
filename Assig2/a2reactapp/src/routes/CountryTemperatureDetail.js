@@ -1,8 +1,6 @@
-import { Link, useParams } from 'react-router-dom';
 
 const CountryTemperatureDetail = ({ }) => {
-    let params = useParams();
-    console.log(params.countryId);
+
     return (
         <div>
             <h2 className="text-center">
