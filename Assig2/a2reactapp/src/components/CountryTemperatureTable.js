@@ -1,6 +1,8 @@
 import { Link , useLocation} from 'react-router-dom';
-function CountryTemperatureData() {
-   
+function CountryTemperatureTable(regionObj, countryObj) {
+    console.log("Component");
+    console.log(regionObj);
+    console.log(countryObj);
     return (
         <div>Emmpty</div>
 
@@ -8,4 +10,4 @@ function CountryTemperatureData() {
     )
 
 }
-export default CountryTemperatureData
+export default CountryTemperatureTable
