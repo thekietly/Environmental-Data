@@ -22,7 +22,7 @@ function CountryCardList() {
             .catch(error => {
                 console.log(error);
             });
-    }, [urlRegionId,query]);
+    }, [urlRegionId]);
     function handleSubmit(e) {
         // Prevent the browser from reloading the page
         e.preventDefault();
