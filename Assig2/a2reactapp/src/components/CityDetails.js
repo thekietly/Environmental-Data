@@ -24,19 +24,19 @@ function CityDetails() {
         const formJson = Object.fromEntries(formData.entries());
         setQuery(formJson.searchTextOnSubmit);
     }
-    function searchAutoComplete(e) {
-        const value = document.querySelector('[name="searchText"]').value;
-        //alert('value: ' + value);
-        setQuery(value);
 
-    }
     return (
 
         <div>
             <form method="post" onSubmit={handleSubmit}>
                 <div className="row justify-content-start mb-3">
                     <div className="col-3">
-                        <input type="text" name="searchTextOnSubmit" className="form-control" placeholder="Type a city... " />
+                        <input list="cities" name="searchTextOnSubmit" className="form-control" placeholder="Type a city... " />
+                        <datalist id="cities">
+                            {cityData.map(city => (
+                                <option key={city.cityID} value={city.cityName} />
+                            ))}
+                        </datalist>
                     </div>
                     {
                         /*Auto complete city */
