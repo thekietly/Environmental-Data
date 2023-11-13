@@ -1,9 +1,9 @@
-import CountryTemperatureTable from '../components/CountryTemperatureDetail'
+import CountryTemperatureDetail from '../components/CountryTemperatureDetail'
 import {useLocation } from 'react-router-dom';
 const CountryTemperature = () => {
     let { state } = useLocation();
     return (
-        <CountryTemperatureTable regionObj={state.regionData} countryObj={ state.countryData} />
+        <CountryTemperatureDetail regionObj={state.regionData} countryObj={ state.countryData} />
     )
 }
 
