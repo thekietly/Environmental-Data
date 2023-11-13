@@ -47,7 +47,25 @@ function CountryTemperatureTable({ regionObj, countryObj }) {
     
             }
 
-            
+            <table className="table table-striped table-bordered table-hover table-dark align-middle">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Temperature Change</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {temperatureData.rawTemperatureData.map((data, index) => (
+                        <tr key={index}>
+                            <td>{data.theCountryTempData.year}</td>
+                            <td>{data.theCountryTempData.change}</td>
+                            <td>{data.theCountryTempData.value}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
 
         </div>
         )
