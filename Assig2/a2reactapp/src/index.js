@@ -10,9 +10,9 @@ import Country from './routes/Country';
 import City from './routes/City';
 import Home from './routes/Home';
 import Elements from './routes/Elements';
-import CountryEmissionsData from './routes/CountryEmissionsData';
+import CountryEmissions from './routes/CountryEmissions';
 import SummaryCountryEmissionsData from './routes/SummaryCountryEmissionsData';
-import CountryTemperatureDetail from './routes/CountryTemperatureDetail';
+import CountryTemperature from './routes/CountryTemperature';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
@@ -26,10 +26,10 @@ root.render(
                     
                     <Route path="/Country" element={<Country />} />
                     <Route path="/Country/:regionId" element={<Country />} />
-                    <Route path="/Country/CountryTemperatureDetail/:countryId" element={<CountryTemperatureDetail />} />
+                    <Route path="/Country/CountryTemperatureDetail/:countryId" element={<CountryTemperature />} />
                     <Route path="/Country/SummaryCountryEmissionsData/:countryId" element={<SummaryCountryEmissionsData />} />
 
-                    <Route path="/Country/CountryEmissionsData/:countryId" element={<CountryEmissionsData />} />
+                    <Route path="/Country/CountryEmissionsData/:countryId" element={<CountryEmissions />} />
                     <Route path="/Country/Elements" element={<Elements />} />
 
                     <Route path="/City/:countryId" element={<City />} />
