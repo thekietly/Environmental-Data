@@ -1,7 +1,7 @@
-import CityCardList from '../components/CityCardList'
+import CityDetails from '../components/CityDetails'
 const City = ({ }) => {
     return (
-        <CityCardList />
+        <CityDetails />
 
     )
 
