@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const CityTable = ({ cityData }) => {
     
     return (
@@ -10,7 +12,7 @@ const CityTable = ({ cityData }) => {
                         <th>City Name</th>
                         <th>Air Quality Year Range</th>
                         <th>Air Quality Records Count</th>
-
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,7 +21,9 @@ const CityTable = ({ cityData }) => {
                             <td>{data.cityName}</td>
                             <td>{data.airQualityYearRange[0] + " - " + data.airQualityYearRange[1]  }</td>
                             <td>{data.recordCount}</td>
-
+                            <td>{data.recordCount > 0 && (
+                                <Link to={'/City/AirQualityData/' + data.cityID} className="btn btn-outline-info">View Air Quality Data</Link>
+                            )}</td>
 
                         </tr>
                     ))}
