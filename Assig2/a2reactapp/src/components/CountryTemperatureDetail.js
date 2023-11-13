@@ -1,7 +1,7 @@
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-import CountryTemperatureTable from './CountryTemperatureTable';
+import CountryTemperatureTable from '../components/CountryTemperatureTable';
 function CountryTemperatureDetail({ regionObj, countryObj }) {
     const { countryId } = useParams();
     const [temperatureData, setTemperatureData] = useState({
@@ -35,16 +35,6 @@ function CountryTemperatureDetail({ regionObj, countryObj }) {
                     <Link to = { "/Country/" + regionObj.regionId } className="btn btn-outline-primary">Back to country List</Link>
                 </div>
             </div>
-
-            {
-                /*
-                temperature table
-
-                temperature graph
-                */
-
-    
-            }
             <CountryTemperatureTable temperatureData = {temperatureData} />
             
 
