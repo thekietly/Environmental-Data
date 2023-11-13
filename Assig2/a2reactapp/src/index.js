@@ -29,7 +29,7 @@ root.render(
                     <Route path="/Country/CountryTemperatureDetail/:countryId" element={<CountryTemperature />} />
                     <Route path="/Country/SummaryCountryEmissionsData/:countryId" element={<SummaryCountryEmissionsData />} />
 
-                    <Route path="/Country/CountryEmissionsData/:countryId" element={<CountryEmissions />} />
+                    <Route path="/Country/CountryEmissionsDetail/:countryId" element={<CountryEmissions />} />
                     <Route path="/Country/Elements" element={<Elements />} />
 
                     <Route path="/City/:countryId" element={<City />} />
@@ -37,7 +37,6 @@ root.render(
                     <Route path="/City/AirQualityData/:cityId" element={<Country />} />
 
 
-                    <Route path="" element={<Home />} />
 
                     <Route path="*" element={<Home />} />
                 </Route>

@@ -1,18 +1,15 @@
 import { useState, useEffect } from 'react';
 import CountryCard from "./CountryCard";
-import RegionCard from "./RegionCard";
 import { Link, useParams } from 'react-router-dom';
 
 function CountryCardList() {
     const [query, setQuery] = useState('');
-    
     const { regionId } = useParams();
     const urlRegionId = regionId || '0';
     const [countryData, setCountryData] = useState({
         theRegion: {},
         countryList: [],
     });
-    // fix no regionId being passed over
     useEffect(() => {
         fetch(`http://localhost:5256/api/B_Countries/CountryList/${urlRegionId}?searchText=${query}`)
             .then(response => response.json())

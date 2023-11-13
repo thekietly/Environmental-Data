@@ -12,12 +12,11 @@ function Card({countryObj, regionObj, countryId, countryName, iso3, imageUrl, ci
                 <p className="card-text">{"Temperature Year Range: " + temperatureDataYear[0] + "-" + temperatureDataYear[1]} </p>
                 
                 {
-                    emissionDataYear[0] === 0 ? "" : <Link to={"/Country/SummaryCountryEmissionsData/" + countryId} state={{ regionData: regionObj, countryData: countryObj }} className="btn btn-outline-primary">View Emissions</Link>
+                    emissionDataYear[0] === 0 ? "" : <Link to={"/Country/CountryEmissionsDetail/" + countryId} state={{ regionData: regionObj, countryData: countryObj }} className="btn btn-outline-primary">View Emissions</Link>
                 }
                 {
                     temperatureDataYear[0] === 0 ? "" : <Link to={"/Country/CountryTemperatureDetail/" + countryId} state={{ regionData: regionObj, countryData: countryObj }}  className="btn btn-outline-primary">View Temperature</Link>
                 }
-                {console.log(regionObj)}
                 <Link to={"/City/" + countryId} className="btn btn-outline-primary">View Cities</Link>
             </div>
 
