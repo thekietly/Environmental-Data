@@ -32,7 +32,7 @@ function CountryEmissionDetail({ regionObj, countryObj }) {
             });
 
     };
-    console.log("hello");
+    console.log(emissionData);
     //console.log(countryObj);
     return (
 
@@ -49,6 +49,7 @@ function CountryEmissionDetail({ regionObj, countryObj }) {
                 </div>
             </div>
             <select onChange={(e) => setSelectedElementId(e.target.value)}>
+                <option selected hidden>Select an element..</option>
                 {elementData.map(element => (
                     <option key={element.elementId} value={element.elementId}>
                         {element.elementName}
@@ -62,6 +63,11 @@ function CountryEmissionDetail({ regionObj, countryObj }) {
 
                 Summary Table
                 */
+            }
+            {
+                emissionData.length > 0 && (
+                    <CountryEmissionTable emissionData={ emissionData} />
+                )
             }
 
 
