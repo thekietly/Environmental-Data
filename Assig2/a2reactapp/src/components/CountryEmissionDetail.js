@@ -21,9 +21,8 @@ function CountryEmissionDetail({ regionObj, countryObj }) {
     }, []);
 
     
-
-    useEffect(() => {
-        fetch(`http://localhost:5256/api/B_Countries/CountryEmissionData/${countryId}?${elementId}`)
+    const emissionDataAPICall = () => {
+        fetch(`http://localhost:5256/api/B_Countries/CountryEmissionData/${countryId}?elementId=${elementId}`)
             .then(response => response.json())
             .then(data => {
                 setEmissionData(data);
@@ -31,7 +30,8 @@ function CountryEmissionDetail({ regionObj, countryObj }) {
             .catch(error => {
                 console.log(error);
             });
-    }, [countryId]);
+
+    };
     console.log("hello");
     //console.log(countryObj);
     return (
@@ -55,6 +55,7 @@ function CountryEmissionDetail({ regionObj, countryObj }) {
                     </option>
                 ))}
             </select>
+            <button onClick={emissionDataAPICall} className="btn btn-outline-primary">Submit</button>
             {
                 /*
                 Table
