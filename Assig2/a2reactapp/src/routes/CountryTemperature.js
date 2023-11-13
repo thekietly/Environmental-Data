@@ -1,6 +1,6 @@
-import CountryTemperatureTable from '../components/CountryTemperatureTable'
+import CountryTemperatureTable from '../components/CountryTemperatureDetail'
 import {useLocation } from 'react-router-dom';
-const CountryTemperatureDetail = () => {
+const CountryTemperature = () => {
     let { state } = useLocation();
     return (
         <CountryTemperatureTable regionObj={state.regionData} countryObj={ state.countryData} />
@@ -8,4 +8,4 @@ const CountryTemperatureDetail = () => {
 }
 
 
-export default CountryTemperatureDetail
+export default CountryTemperature
