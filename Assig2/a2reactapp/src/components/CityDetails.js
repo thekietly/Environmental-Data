@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import CityCard from "../components/CityCard";
+import CityTable from "./CityTable";
 
-function CityCardList() {
+function CityDetails() {
     const [query, setQuery] = useState('');
     const { countryId } = useParams();
     const [cityData, setCityData] = useState([]);
@@ -24,6 +24,12 @@ function CityCardList() {
         const formJson = Object.fromEntries(formData.entries());
         setQuery(formJson.searchTextOnSubmit);
     }
+    function searchAutoComplete(e) {
+        const value = document.querySelector('[name="searchText"]').value;
+        //alert('value: ' + value);
+        setQuery(value);
+
+    }
     return (
 
         <div>
@@ -43,7 +49,7 @@ function CityCardList() {
 
             {
                 cityData.length > 0 && (
-                    <CityCard cityData={ cityData} />
+                    <CityTable cityData={ cityData} />
                 )
 
             }
@@ -53,4 +59,4 @@ function CityCardList() {
     );
 }
 
-export default CityCardList;
+export default CityDetails;
