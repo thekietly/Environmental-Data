@@ -35,7 +35,13 @@ function CountryTemperatureDetail({ regionObj, countryObj }) {
                     <Link to = { "/Country/" + regionObj.regionId } className="btn btn-outline-primary">Back to country List</Link>
                 </div>
             </div>
-            <CountryTemperatureTable temperatureData = {temperatureData} />
+            {
+                temperatureData.length > 0 && (
+                    <CountryTemperatureTable temperatureData={temperatureData} />
+                )
+
+            }
+            
             
 
 
