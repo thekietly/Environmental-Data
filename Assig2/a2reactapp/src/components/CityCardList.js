@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import CityCard from "../components/CityCard";
 
 function CityCardList() {
     const [query, setQuery] = useState('');
@@ -14,7 +15,7 @@ function CityCardList() {
             .catch(error => {
                 console.log(error);
             });
-    }, [countryId]);
+    }, [countryId, query]);
     function handleSubmit(e) {
         // Prevent the browser from reloading the page
         e.preventDefault();
@@ -35,11 +36,17 @@ function CityCardList() {
                         /*Auto complete city */
                     }
                     <div className="col text-left">
-                        <button className="btn btn-primary" type="submit">Search</button>
+                        <button className="btn btn-outline-primary" type="submit">Search</button>
                     </div>
                 </div>
             </form>
 
+            {
+                cityData.length > 0 && (
+                    <CityCard cityData={ cityData} />
+                )
+
+            }
 
 
         </div>
