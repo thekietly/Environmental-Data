@@ -25,7 +25,7 @@ function CityAirQualityData ({countryId }) {
         <div>
             {
                 airQualityData.theCityDetail.cityId === 0 ?
-                    <Link to="/Region" className="btn btn-outline-primary">Back To Regions</Link> : <div className="card col-4 mb-2" style={{ width: 18 + 'rem' }}>
+                    <Link to="/Region" className="btn btn-outline-primary">Back To Regions</Link> : <div className="card col-4 mb-2 mx-auto" style={{ width: 18 + 'rem' }}>
                         <img className="card-img-top" src={airQualityData.theCityDetail.imageUrl} alt={"Image of " + airQualityData.theCityDetail.regionName} />
                         <div className="card-body">
                             <h5 className="card-title">{airQualityData.theCityDetail.cityName}</h5>
