@@ -67,7 +67,7 @@ function CityDetails() {
 
             {
                 cityData.length > 0 && (
-                    <CityTable cityData={ cityData} />
+                    <CityTable cityData={cityData} countryId={ countryId} />
                 )
 
             }
