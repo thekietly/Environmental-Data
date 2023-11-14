@@ -1,8 +1,10 @@
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-const CityAirQualityData = ({countryId }) => {
-    const { cityId } = useParams();
+import CityAirQualityDataTable from './CityAirQualityDataTable';
 
+function CityAirQualityData ({countryId }) {
+    const { cityId } = useParams();
+    console.log(countryId);
     const [airQualityData, setAirQualityData] = useState({
         theCityDetail: {},
         theCityAirQualityData: [],
@@ -27,13 +29,14 @@ const CityAirQualityData = ({countryId }) => {
                         <div className="card-body">
                             <h5 className="card-title">{airQualityData.theCityDetail.cityName}</h5>
                             <p className="card-text">
-                                {airQualityData.theCityDetail.iso3 === "" ? "" : airQualityData.theCityDetail.iso3 + " : "}
+                            {airQualityData.theCityDetail.iso3 === "" ? "" : airQualityData.theCityDetail.iso3 + " : "}
                                 {airQualityData.theCityDetail.countryName}
                                 {airQualityData.theCityDetail.regionName === "" ? "" : " from " + airQualityData.theCityDetail.regionName}</p>
                             <Link to={"/City/" + countryId} className="btn btn-outline-primary">Back to Cities</Link>
                         </div>
                     </div>
             }
+            <CityAirQualityDataTable airQualityInfo={ airQualityData} />
         </div>
 
 
