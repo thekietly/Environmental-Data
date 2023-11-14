@@ -39,11 +39,6 @@ function CityDetails() {
     return (
 
         <div>
-
-            { /*
-                        auto-complete approach from the practical test    
-                        */
-            }
             <form method="post" onSubmit={handleSubmit}>
                 <div className="row justify-content-start mb-3">
                     <div className="col-3">
