@@ -13,8 +13,10 @@ const CityAirQualityDataTable = ({ airQualityData }) => {
                         <th>Country PM25 Min</th>
                         <th>Country PM25 Max</th>
                         <th>Annual Mean</th>
+                        <th>Temporal Coverage 1</th>
                         <th>Annual Mean PM10</th>
                         <th>Annual Mean Ugm3</th>
+                        <th>Temporal Coverage 2</th>
                         <th>Annual Mean PM25</th>
                         <th>Reference</th>
                         <th>DB Year</th>
@@ -36,8 +38,10 @@ const CityAirQualityDataTable = ({ airQualityData }) => {
                             <td>{parseFloat(data.countryPM25Min).toFixed(2)}</td>
                             <td>{parseFloat(data.countryPM25Max).toFixed(2)}</td>
                             <td>{data.theAirQualityData.annualMean}</td>
+                            <td>{data.theAirQualityData.temporalCoverage1}</td>
                             <td>{data.theAirQualityData.annualMeanPm10}</td>
                             <td>{data.theAirQualityData.annualMeanUgm3}</td>
+                            <td>{data.theAirQualityData.temporalCoverage2}</td>
                             <td>{data.theAirQualityData.annualMeanPm25}</td>
                             <td>{data.theAirQualityData.reference}</td>
                             <td>{data.theAirQualityData.dbYear}</td>
