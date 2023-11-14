@@ -20,9 +20,9 @@ root.render(
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />}>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/Home" element={<Home />} />
-                    <Route path="/Privacy" element={<Privacy />} />
+                    <Route path="/" element={<Region />} />
+                    <Route path="/Home" element={<Region />} />
+
                     <Route path="/Region" element={<Region />} />
                     
                     <Route path="/Country" element={<Country />} />
