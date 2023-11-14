@@ -13,15 +13,18 @@ const RegionCardList = ({ }) => {
 
     return (
         <div className="row">
-            {regionData.map((obj) => (
+            {regionData.filter(obj => obj.regionId > 0).map((obj) => (
                 <RegionCard
                     key={obj.regionId}
                     regionId={obj.regionId}
                     regionName={obj.regionName}
                     imageUrl={obj.imageUrl}
                     countryCount={obj.countryCount}
-
-                />))}
+                />
+            )
+                
+            )
+            }
         </div>
 
     )
