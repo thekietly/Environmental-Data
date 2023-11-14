@@ -4,11 +4,11 @@ import CityAirQualityDataTable from './CityAirQualityDataTable';
 
 function CityAirQualityData ({countryId }) {
     const { cityId } = useParams();
-    console.log(countryId);
+
     const [airQualityData, setAirQualityData] = useState({
         theCityDetail: {},
         theCityAirQualityData: [],
-    });
+});
     useEffect(() => {
         fetch(`http://localhost:5256/api/C_Cities/GetAirQualityData/${cityId}`)
             .then(response => response.json())
@@ -19,6 +19,7 @@ function CityAirQualityData ({countryId }) {
                 console.log(error);
             });
     }, [cityId]);
+    console.log(airQualityData.theCityAirQualityData.length > 0);
     return (
 
         <div>
@@ -36,7 +37,12 @@ function CityAirQualityData ({countryId }) {
                         </div>
                     </div>
             }
-            <CityAirQualityDataTable airQualityInfo={ airQualityData} />
+            {
+                airQualityData.theCityAirQualityData.length > 0 && (
+                    <CityAirQualityDataTable airQualityData={airQualityData} />)
+            }
+
+                
         </div>
 
 
