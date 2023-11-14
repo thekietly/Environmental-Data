@@ -14,15 +14,10 @@ function App() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
-                            <Link className="nav-link active" to="/Home">
+                            <Link className="nav-link active" to="/Region">
                                 Home
                             </Link>
-                            <Link className="nav-link" to="/Privacy">
-                                Privacy
-                            </Link>
-                            <Link className="nav-link" to="/Region">
-                                Regions
-                            </Link>
+
 
                             <Link className="nav-link" to="/Country">
                                 Countries
