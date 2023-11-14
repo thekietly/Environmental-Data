@@ -1,8 +1,11 @@
 import CityAirQualityData from '../components/CityAirQualityData'
 
+import { useLocation } from 'react-router-dom';
 const AirQualityData = ({ }) => {
+
+    let { state } = useLocation();
     return (
-        <CityAirQualityData />
+        <CityAirQualityData countryId={ state.countryInfo} />
 
 
     )
