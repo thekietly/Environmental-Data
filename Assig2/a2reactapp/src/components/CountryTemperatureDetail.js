@@ -1,6 +1,6 @@
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-
+import TemperatureGraph from '../components/TemperatureGraph';
 import CountryTemperatureTable from '../components/CountryTemperatureTable';
 function CountryTemperatureDetail({ regionObj, countryObj }) {
     const { countryId } = useParams();
@@ -36,15 +36,14 @@ function CountryTemperatureDetail({ regionObj, countryObj }) {
                 </div>
             </div>
             {
-                temperatureData.length > 0 && (
-                    <CountryTemperatureTable temperatureData={temperatureData} />
+                temperatureData.rawTemperatureData.length > 0 && (
+                    <>
+                        <TemperatureGraph temperatureData={temperatureData} />
+                        <CountryTemperatureTable temperatureData={temperatureData} />
+                    </>
                 )
 
             }
-            
-            
-
-
         </div>
         )
 
