@@ -1,4 +1,4 @@
-import CityDetails from '../components/CityDetails'
+import CityDetails from '../components/cities/CityDetails'
 const City = ({ }) => {
     return (
         <CityDetails />

@@ -1,4 +1,4 @@
-import RegionCardList from '../components/RegionCardList'
+import RegionCardList from '../components/regions/RegionCardList'
 
 const Region = ({ }) => {
     return (

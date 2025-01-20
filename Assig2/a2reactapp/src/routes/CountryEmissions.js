@@ -1,4 +1,4 @@
-import CountryEmissionDetail from '../components/CountryEmissionDetail';
+import CountryEmissionDetail from '../components/countries/CountryEmissionDetail';
 
 import { useLocation } from 'react-router-dom';
 const CountryEmissions = () => {

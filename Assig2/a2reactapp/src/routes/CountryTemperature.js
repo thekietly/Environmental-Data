@@ -1,4 +1,4 @@
-import CountryTemperatureDetail from '../components/CountryTemperatureDetail'
+import CountryTemperatureDetail from '../components/countries/CountryTemperatureDetail'
 import {useLocation } from 'react-router-dom';
 const CountryTemperature = () => {
     let { state } = useLocation();

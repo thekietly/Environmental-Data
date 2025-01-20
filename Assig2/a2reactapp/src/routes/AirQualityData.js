@@ -1,4 +1,4 @@
-import CityAirQualityData from '../components/CityAirQualityData'
+import CityAirQualityData from '../components/cities/CityAirQualityData'
 
 import { useLocation } from 'react-router-dom';
 const AirQualityData = ({ }) => {

@@ -1,4 +1,4 @@
-import CountryCardList from '../components/CountryCardList'
+import CountryCardList from '../components/countries/CountryCardList'
 const Country = ({ }) => {
     return (
         <CountryCardList/>
