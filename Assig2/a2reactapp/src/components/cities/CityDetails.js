@@ -52,14 +52,15 @@ function CityDetails() {
                         </datalist>
                     </div>
 
-                    <div className="col text-left">
+                    <div className="col-1">
                         <button className="btn btn-outline-primary" type="submit">Search</button>
                     </div>
 
-
+                    <div className="col text-left">
+                        <Link to={"/Country/"} className="btn btn-outline-primary">Back to country List</Link>
+                    </div>
                 </div>
             </form>
-
             {
                 cityData.length > 0 && (
                     <CityTable cityData={cityData} countryId={ countryId} />
