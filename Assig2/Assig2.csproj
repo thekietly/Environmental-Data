@@ -42,6 +42,8 @@
 
   <ItemGroup>
     <Folder Include="a2reactapp\src\assets\" />
+    <Folder Include="a2reactapp\src\components\services\" />
+    <Folder Include="a2reactapp\src\styles\" />
   </ItemGroup>
 
 </Project>
