@@ -1,8 +1,8 @@
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-import CountryEmissionTable from '../components/CountryEmissionTable';
-import CountrySummaryEmissionTable from '../components/CountrySummaryEmissionTable';
+import CountryEmissionTable from '../countries/CountryEmissionTable';
+import CountrySummaryEmissionTable from '../countries/CountrySummaryEmissionTable';
 function CountryEmissionDetail({ regionObj, countryObj }) {
     const { countryId } = useParams();
     const [emissionData, setEmissionData] = useState([] 

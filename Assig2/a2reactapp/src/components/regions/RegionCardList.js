@@ -1,15 +1,21 @@
-import { useState, useEffect } from 'react'
-import RegionCard from "./RegionCard"
+import { useState, useEffect } from 'react';
+import RegionCard from "./RegionCard";
+import { fetchRegionData } from "../../services/API";
+
 const RegionCardList = ({ }) => {
-    const [regionData, setState] = useState([]);
+    const [regionData, setRegionData] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5256/api/A_Regions")
-            .then(response => response.json())
-            .then(data => setState(data))
-            .catch(error => {
+        const getRegionData = async () => {
+            try {
+                const data = await fetchRegionData();
+                setRegionData(data);
+            } catch (error) {
                 console.log(error);
-            });
-    }, [])
+            }
+        };
+
+        getRegionData();
+    }, []);
 
     return (
         <div className="row">

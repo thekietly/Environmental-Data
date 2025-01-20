@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import CountryCard from "./CountryCard";
 import { Link, useParams } from 'react-router-dom';
+import { fetchCountryListData } from '../../services/API';
 
 function CountryCardList() {
     const [query, setQuery] = useState('');
@@ -10,29 +11,34 @@ function CountryCardList() {
         theRegion: {},
         countryList: [],
     });
-    const [countryAutoComnpleteData, setCountryAutoComnpleteData] = useState({
+    const [countryAutoComnpleteData, setCountryAutoCompleteData] = useState({
         theRegion: {},
         countryList: [],
     });
     useEffect(() => {
-        fetch(`http://localhost:5256/api/B_Countries/CountryList/${urlRegionId}?searchText=${query}`)
-            .then(response => response.json())
-            .then(data => {
+        const getCountryListBySearchQuery = async () => {
+            try {
+                const data = await fetchCountryListData(urlRegionId, query);
                 setCountryData(data);
-            })
-            .catch(error => {
+            } catch (error) {
                 console.log(error);
-            });
+            }
+        };
+
+        getCountryListBySearchQuery();
     }, [urlRegionId, query]);
+
     useEffect(() => {
-        fetch(`http://localhost:5256/api/B_Countries/CountryList/${urlRegionId}`)
-            .then(response => response.json())
-            .then(data => {
-                setCountryAutoComnpleteData(data);
-            })
-            .catch(error => {
+        const getCountryAutoCompleteData = async () => {
+            try {
+                const data = await fetchCountryListData(urlRegionId);
+                setCountryAutoCompleteData(data);
+            } catch (error) {
                 console.log(error);
-            });
+            }
+        };
+
+        getCountryAutoCompleteData();
     }, [urlRegionId]);
     function handleSubmit(e) {
         // Prevent the browser from reloading the page
@@ -42,15 +48,16 @@ function CountryCardList() {
         const formJson = Object.fromEntries(formData.entries());
         setQuery(formJson.countrySearchText);
     }
-    console.log(countryAutoComnpleteData);
+    console.log(countryAutoComnpleteData.countryList);
+    console.log(countryAutoComnpleteData.countryList.map(country => country.countryName));
     return (
 
         <div>
             <form method="post" onSubmit={handleSubmit}>
                 <div className="row justify-content-start mb-3">
                     <div className="col-3">
-                        <input  list="countryList" name="countrySearchText" className="form-control" placeholder="Type a country... " />
-                        <datalist id="countryList">
+                        <input list="data" name="countrySearchText" className="form-control" placeholder="Search" />
+                        <datalist id="data">
                             {countryAutoComnpleteData.countryList.map(country => (
                                 <option key={country.countryId} value={country.countryName} />
                             ))}
@@ -67,21 +74,21 @@ function CountryCardList() {
             </form>
             {
                 countryData.theRegion.regionId === 0 ?
-                     "": <div className="card col-4 mb-2 mx-auto" style={{ width: 18 + 'rem' }}>
-                    <img className="card-img-top mt-2" src={countryData.theRegion.imageUrl} alt={"Image of " + countryData.theRegion.regionName} />
-                    <div className="card-body">
-                        <h5 className="card-title">{countryData.theRegion.regionName}</h5>
-                        <p className="card-text">Total countries: {countryData.theRegion.countryCount}</p>
+                    "" : <div className="card col-4 mb-2 mx-auto" style={{ width: 18 + 'rem' }}>
+                        <img className="card-img-top mt-2" src={countryData.theRegion.imageUrl} alt={"Image of " + countryData.theRegion.regionName} />
+                        <div className="card-body">
+                            <h5 className="card-title">{countryData.theRegion.regionName}</h5>
+                            <p className="card-text">Total countries: {countryData.theRegion.countryCount}</p>
+                        </div>
                     </div>
-                </div>
             }
-            
+
             <div className="row">
                 {countryData.countryList.map((obj) => (
                     <CountryCard
                         //countryId, countryName, iso3, imageUrl, cityCount, emissionDataYear,  temperatureDataYear
                         key={obj.countryId}
-                        countryObj={ obj}
+                        countryObj={obj}
                         regionObj={countryData.theRegion}
                         countryId={obj.countryId}
                         countryName={obj.countryName}
@@ -94,7 +101,7 @@ function CountryCardList() {
                     />
                 ))}
             </div>
-            
+
         </div>
     );
 }
