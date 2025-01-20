@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import CountryCard from "./CountryCard";
 import { Link, useParams } from 'react-router-dom';
 import { fetchCountryListData } from '../../services/API';
-
+import  CountryAutoCompleteSearch  from './CountryAutoCompleteSearch';
 function CountryCardList() {
     const [query, setQuery] = useState('');
     const { regionId } = useParams();
@@ -56,12 +56,7 @@ function CountryCardList() {
             <form method="post" onSubmit={handleSubmit}>
                 <div className="row justify-content-start mb-3">
                     <div className="col-3">
-                        <input list="data" name="countrySearchText" className="form-control" placeholder="Search" />
-                        <datalist id="data">
-                            {countryAutoComnpleteData.countryList.map(country => (
-                                <option key={country.countryId} value={country.countryName} />
-                            ))}
-                        </datalist>
+                        <CountryAutoCompleteSearch countries={countryAutoComnpleteData.countryList} />
 
                     </div>
                     <div className="col-1">
