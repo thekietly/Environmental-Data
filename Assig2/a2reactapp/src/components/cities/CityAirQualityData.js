@@ -1,7 +1,7 @@
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import CityAirQualityDataTable from './CityAirQualityDataTable';
-
+import { fetchGetAirQualityDataByCityId} from "../../services/API"
 function CityAirQualityData ({countryId }) {
     const { cityId } = useParams();
 
@@ -10,14 +10,17 @@ function CityAirQualityData ({countryId }) {
         theCityAirQualityData: [],
 });
     useEffect(() => {
-        fetch(`http://localhost:5256/api/C_Cities/GetAirQualityData/${cityId}`)
-            .then(response => response.json())
-            .then(data => {
+        const getAirQualityData = async () =>
+        {
+            try {
+                const data = await fetchGetAirQualityDataByCityId(cityId);
                 setAirQualityData(data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+            } catch (error)
+            {
+                console.log(error);                    
+            }
+        }
+        getAirQualityData();
     }, [cityId]);
     console.log(airQualityData.theCityAirQualityData.length > 0);
     return (
